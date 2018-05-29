@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PHP代理跨域</title>
+</head>
+<body>
+	<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.js"></script>
+	<script>
+		var num = 1,
+	    name = '周杰伦',
+	    urlString = `http://s.music.qq.com/fcgi-bin/music_search_new_platform?t=0&n=${num}&aggr=1&cr=1&loginUin=0&format=json&inCharset=GB2312&outCharset=utf-8&notice=0&platform=jqminiframe.json&needNewCode=0&p=1&catZhida=0&remoteplace=sizer.newclient.next_song&w=${name}`;
+
+		$.ajax({
+			url:'../php/02.php',
+			type:'post',
+			data:{urlString},
+			success:function(data){
+				console.log(JSON.parse(data));
+			}
+		})
+	</script>
+</body>
+</html>
